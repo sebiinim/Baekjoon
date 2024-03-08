@@ -1,4 +1,6 @@
 .idea
 .vs
 .vscode
+.gitignore
+.exe
 txt
