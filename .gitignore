@@ -2,5 +2,5 @@
 .vs
 .vscode
 .gitignore
-.exe
+*.exe
 txt
