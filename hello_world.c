@@ -2,18 +2,24 @@
 #include <string.h>
 
 int main() {
-    char input[2000];
-
-    // 사용자로부터 문자열 입력 받기
-    printf("Enter a string: ");
-    fgets(input, sizeof(input), stdin);
-
-    // 입력 문자열을 공백으로 분리하여 출력
-    char *token = strtok(input, " ");
-    while (token != NULL) {
-        printf("%s\n", token);
-        token = strtok(NULL, " ");
+    int nums[1000][2];
+    int i=0;
+    while(1){
+        scanf("%d %d", &nums[i][0], &nums[i][1]);
+        if((nums[i][0] == 0)&&(nums[i][1] == 0)){
+            break;
+        }
+        i++;
     }
 
-    return 0;
+    for(int j=0; j<i; j++){
+        if(nums[j][1] % nums[j][0] == 0){
+            printf("factor\n");
+        } else if (nums[j][0] % nums[j][1] == 0)
+        {
+            printf("multiple\n");
+        } else{
+            printf("neither\n");
+        }
+    }
 }
