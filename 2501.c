@@ -6,7 +6,7 @@ int main() {
     scanf("%d %d", &N, &K);
 
     int cnt=0;
-    for(int i=1; i<N-1; i++){
+    for(int i=1; i<=N; i++){
         if(N%i == 0){
             cnt++;
         }
