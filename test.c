@@ -2,7 +2,15 @@
 #include <string.h>
 
 int main() {
-    printf("hello world!");
+    int nums[10];
+
+    for(int i=0; i<3; i++){
+        scanf("%d", &nums[i]);
+    }
+
+    for(int i=0; i<3; i++){
+        printf("%d\t", nums[i]);
+    }
 
     return 0;
 }
