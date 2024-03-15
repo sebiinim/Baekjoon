@@ -1,6 +1,12 @@
+#include <math.h>
 #include <stdio.h>
+double factorial(double n);
 
-int main() {
-  int n = 2147483647;
-  printf("%d", n);
+int main() { printf("%lf", factorial(12)); }
+
+double factorial(double n) {
+  if (n <= 1)
+    return 1;
+  else
+    return n * factorial(n - 1);
 }
