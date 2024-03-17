@@ -2,6 +2,6 @@
 #include <stdio.h>
 
 int main() {
-  double testnum = 7 * 7 * 7;
-  printf("%.0lf\n", testnum);
+  double testnum = -2 / -1;
+  printf("%lf", testnum);
 }
