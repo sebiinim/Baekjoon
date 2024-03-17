@@ -15,16 +15,8 @@ int main() {
       printf("0\n");
   } else if (c < a1) {
     printf("0\n");
-    // if (a0 / (c - a1) >= n0) {
-    //   printf("1\n");
-    // } else
-    //   printf("0\n");
   } else {
     printf("1\n");
-    // if (a0 <= 0)
-    //   printf("1\n");
-    // else
-    //   printf("0\n");
   }
 
   return 0;
