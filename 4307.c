@@ -1,31 +1,59 @@
-// 4307 개미
 #include <stdio.h>
 
-int calculate1(int* len, int* position);
-int calculate2(int* len, int* position);
+// 가까운쪽으로 떨어지는 시간
+int calculate1(int testlen, int positions) {
+  if ((double)testlen / 2 < positions) {
+    return testlen - positions;
+  } else {
+    return positions;
+  }
+}
+
+// 먼 쪽으로 떨어지는 시간
+int calculate2(int testlen, int positions) {
+  if ((double)testlen / 2 < positions) {
+    return positions;
+  } else {
+    return testlen - positions;
+  }
+}
 
 int main() {
-  int testnum;  // 테스트 케이스 개수
+  int testnum;  // 테스트케이스 개수
   scanf("%d", &testnum);
 
-  int len[99999];  // 막대 길이 저장할 int 배열
-  int antnum[99999];
-  int positions[99999][100001];  // 테케 개수 * 개미 수
+  int testlen[100001];    // 테스트케이스의 막대 길이
+  int testant[100001];    // 테스트케이스의 개미 수
+  int positions[100001];  // 개미 위치
+  int falltime1[100001] = {
+      0,
+  };
+  int falltime2[100001] = {
+      0,
+  };
+
   // 테스트케이스 입력받기
   for (int i = 0; i < testnum; ++i) {
-    scanf("%d %d", len[i], antnum[testnum]);  // 테케마다 개미 수
-    for (int j = 0; j < antnum[testnum]; ++j) {
-      scanf("%d", positions[testnum][j]);
+    scanf("%d %d", &testlen[i], &testant[i]);  // 테케마다 막대길이, 개미 수
+    for (int j = 0; j < testant[i]; ++j) {
+      scanf("%d", &positions[j]);
+    }
+
+    for (int j = 0; j < testant[i]; ++j) {
+      if (calculate1(testlen[i], positions[j]) > falltime1[i]) {
+        falltime1[i] = calculate1(testlen[i], positions[j]);
+      }
+
+      if (calculate2(testlen[i], positions[j]) > falltime2[i]) {
+        falltime2[i] = calculate2(testlen[i], positions[j]);
+      }
     }
   }
 
   for (int i = 0; i < testnum; ++i) {
+    printf("%d %d\n", falltime1[i], falltime2[i]);
   }
+
+  // printf("end\n");
+  return 0;
 }
-
-// 가장 가운데 있는 애가 떨어지는 시간
-int calculate1(int* len, int* position) {}
-
-// 가장 끝에 있는 애가 반대편으로 떨어지는 시간
-// 최대최소 써야할듯, qsort필요하겠는데?
-int calculate2(int* len, int* position) {}

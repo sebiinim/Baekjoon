@@ -1,3 +1,9 @@
 #include <stdio.h>
 
-int main() { printf("%d", 9 / 2); }
+int main() {
+  printf("Hello World!");
+
+  return 0;
+}
+
+// 전체 복사붙여넣기
