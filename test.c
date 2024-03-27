@@ -1,9 +1,16 @@
 #include <stdio.h>
 
 int main() {
-  printf("Hello World!");
+  char words[100][60];
+  scanf("%s", &words[0]);
 
-  return 0;
+  for (int j = 0; j < 60; j++) {
+    if (words[0][j] == '(') {
+      printf("(");
+    } else if ((words[0][j]) == ')') {
+      printf(")");
+    } else {
+      break;
+    }
+  }
 }
-
-// 전체 복사붙여넣기
