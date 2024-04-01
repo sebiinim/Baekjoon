@@ -29,7 +29,6 @@ void push(Stack *stack, int item) {
 
 int pop(Stack *stack) {
   if (isEmpty(stack)) {
-    // printf("-1\n");
     return -1;
   }
   return stack->data[stack->top--];
@@ -44,15 +43,15 @@ int top(Stack *stack) {
   return stack->data[stack->top];
 }
 
+// 잘 되는 상태
 int main() {
   int N;  // 총 학생 수
   scanf("%d", &N);
-  int order = 1;       // 현재 받을 번호
-  bool canGet = true;  // 받을 수 있는지
+  int order = 1;        // 현재 받을 번호
+  bool canGet = false;  // 받을 수 있는지
 
   Stack stack;
   init(&stack);
-  // printf("stacksize : %d\n", size(&stack));
 
   int nowNum;  // 메인 줄 가장 앞 학생의 번호
 
@@ -60,17 +59,14 @@ int main() {
   for (int i = 0; i < N; ++i) {
     scanf("%d", &nowNum);
 
+    // 지금 번호가 현재순서(order)이면 push하지 "않고" order 1 증가
     if (order == nowNum) {
       order++;
-      // printf("order\n");
     } else {
-      if ((!isEmpty(&stack)) && (top(&stack) == nowNum)) {
-        pop(&stack);
-        order++;
-      }
       push(&stack, nowNum);
     }
 
+    // 스택 최상단이 현재순서이면 pop하고 order 1 증가
     while ((!isEmpty(&stack)) && (order == top(&stack))) {
       pop(&stack);
       order++;
@@ -78,19 +74,7 @@ int main() {
   }
 
   if (isEmpty(&stack)) {
-    printf("Nice\n");
-    return 0;
-  }
-
-  // 서브 줄이 빠질 수 있는지
-  int finalSize = size(&stack);  // 서브 줄 사람 수
-  // printf("finalSize : %d\n", finalSize);
-  int prenum = pop(&stack);  // 서브 줄 최상단 값 미리 저장해두기
-  while (finalSize--) {
-    if (prenum > pop(&stack)) {
-      canGet = false;
-      break;
-    }
+    canGet = true;
   }
 
   if (canGet) {

@@ -1,16 +1,22 @@
 #include <stdio.h>
 
 int main() {
-  char words[100][60];
-  scanf("%s", &words[0]);
+  char score;
+  int scorenum;
 
-  for (int j = 0; j < 60; j++) {
-    if (words[0][j] == '(') {
-      printf("(");
-    } else if ((words[0][j]) == ')') {
-      printf(")");
-    } else {
-      break;
-    }
-  }
+  printf("학점을 입력하시오 : \n");
+  scanf("%d", &scorenum);
+
+  if (90 < scorenum)
+    score = 'A';
+  else if (80 < scorenum)
+    score = 'B';
+  else if (70 < scorenum)
+    score = 'C';
+  else if (60 < scorenum)
+    score = 'D';
+  else
+    score = 'F';
+
+  printf("학점은 %c입니다", score);
 }
