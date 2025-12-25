@@ -1,4 +1,4 @@
-if 5:
-    print(1)
-else:
-    print(0)
+queue = [1, 2, 3]
+
+print(queue.pop(0))
+print(queue)
