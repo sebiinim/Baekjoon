@@ -1,2 +1,4 @@
-for i in range(5):
-    print(i)
+if 5:
+    print(1)
+else:
+    print(0)
