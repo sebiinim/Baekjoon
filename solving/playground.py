@@ -1,2 +1,4 @@
-for i in range(1):
-    print(i)
+name = "pikachu"
+age = "8"
+print(name.isdigit())
+print(age.isdigit())
