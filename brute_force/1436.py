@@ -17,3 +17,7 @@ while len(devil_num) < N:
         devil_num.append(k)
 
 print(devil_num[-1])
+
+# 시간복잡도 = k*logk
+# str(k)와 666 in str이 각각 logk 이다.
+# 전체 반복을 k번정도 한다.
