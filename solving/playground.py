@@ -1,4 +1,4 @@
-name = "pikachu"
-age = "8"
-print(name.isdigit())
-print(age.isdigit())
+a = [2, 1]
+
+print(a)
+print(a)
