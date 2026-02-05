@@ -1,1 +1,6 @@
-print(27 // 2)
+heap = [1]
+
+if heap:
+    print(1)
+else:
+    print(0)
